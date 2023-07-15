@@ -1,4 +1,4 @@
 public interface IAbility
 {
-    public void ActiveSkill();
+    public void ActiveSkill(DataHolder holder);
 }

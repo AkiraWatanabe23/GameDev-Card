@@ -1,4 +1,4 @@
 public interface ICondition
 {
-    public bool Check();
+    public bool Check(DataHolder holder);
 }

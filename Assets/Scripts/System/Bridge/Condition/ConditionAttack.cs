@@ -1,6 +1,6 @@
 public class ConditionAttack : ICondition
 {
-    public bool Check()
+    public bool Check(DataHolder holder)
     {
         throw new System.NotImplementedException();
     }

@@ -1,6 +1,6 @@
 public class AbilityDamaged : IAbility
 {
-    public void ActiveSkill()
+    public void ActiveSkill(DataHolder holder)
     {
         throw new System.NotImplementedException();
     }

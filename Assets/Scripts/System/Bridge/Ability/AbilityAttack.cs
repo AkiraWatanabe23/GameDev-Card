@@ -1,6 +1,6 @@
 public class AbilityAttack : IAbility
 {
-    public void ActiveSkill()
+    public void ActiveSkill(DataHolder holder)
     {
         throw new System.NotImplementedException();
     }

@@ -1,6 +1,6 @@
 public class ConditionNormal : ICondition
 {
-    public bool Check()
+    public bool Check(DataHolder holder)
     {
         return true;
     }
