@@ -6,6 +6,9 @@ namespace StateMachine
     [Serializable]
     public class StateMachineRoot
     {
+        [SerializeField]
+        [SerializeReference]
+        [SubclassSelector]
         private IState _currentState = default;
 
         public IState CurrentState => _currentState;
