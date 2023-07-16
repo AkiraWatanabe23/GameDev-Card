@@ -1,11 +1,13 @@
 using UnityEngine;
 using StateMachine;
+using Constants;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private StateMachineRoot _stateMachineRoot = new();
 
+    public Turn CurrentTurn { get; private set; }
     public static GameManager Instance { get; private set; }
 
     private void Awake()
@@ -26,8 +28,8 @@ public class GameManager : MonoBehaviour
         _stateMachineRoot.Init();
     }
 
-    private void Update()
+    public void ChangeTurn(Turn nextTurn)
     {
-        
+        CurrentTurn = nextTurn;
     }
 }

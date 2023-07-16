@@ -18,5 +18,12 @@ namespace Constants
         INGAME_SCENE,
         RESULT_SCENE,
     }
+
+    public enum Turn
+    {
+        NONE,
+        PLAYER,
+        OPPONENT,
+    }
 }
 
