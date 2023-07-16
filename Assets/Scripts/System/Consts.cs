@@ -25,5 +25,15 @@ namespace Constants
         PLAYER,
         OPPONENT,
     }
+
+    public enum BGM_TYPE
+    {
+
+    }
+
+    public enum SE_TYPE
+    {
+
+    }
 }
 
