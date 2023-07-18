@@ -1,13 +1,8 @@
 /// <summary> 対戦相手の管理クラス </summary>
 public class OpponentController : CharacterBase
 {
-    private void Start()
+    public override void CardDraw()
     {
-        
-    }
-
-    private void Update()
-    {
-        
+        throw new System.NotImplementedException();
     }
 }

@@ -1,12 +1,7 @@
 public class PlayerController : CharacterBase
 {
-    private void Start()
+    public override void CardDraw()
     {
-        
-    }
-
-    private void Update()
-    {
-        
+        throw new System.NotImplementedException();
     }
 }

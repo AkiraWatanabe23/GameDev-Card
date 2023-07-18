@@ -17,6 +17,10 @@ public abstract class CharacterBase : MonoBehaviour
 
     private void Update()
     {
-        
+
     }
+
+    #region Playerの行動一覧
+    public abstract void CardDraw();
+    #endregion
 }
