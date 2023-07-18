@@ -54,16 +54,16 @@ namespace StateMachine
             _currentState = GetState(nextState);
             _currentState.OnEnter(this);
         }
+    }
 
-        public enum States
-        {
-            NONE,
-            PHASE_START,
-            PHASE_DRAW,
-            PHASE_MAIN_ONE,
-            PHASE_BATTLE,
-            PHASE_MAIN_TWO,
-            PHASE_END,
-        }
+    public enum States
+    {
+        NONE,
+        PHASE_START,
+        PHASE_DRAW,
+        PHASE_MAIN_ONE,
+        PHASE_BATTLE,
+        PHASE_MAIN_TWO,
+        PHASE_END,
     }
 }

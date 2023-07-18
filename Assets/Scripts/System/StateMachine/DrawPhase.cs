@@ -13,7 +13,7 @@ public class DrawPhase : IState, IPointerClickHandler
 
     public void OnUpdate(StateMachineRoot owner)
     {
-        if (_isDraw) owner.ChangeState(StateMachineRoot.States.PHASE_MAIN_ONE);
+        if (_isDraw) owner.ChangeState(States.PHASE_MAIN_ONE);
     }
 
     public void OnExit(StateMachineRoot owner)
