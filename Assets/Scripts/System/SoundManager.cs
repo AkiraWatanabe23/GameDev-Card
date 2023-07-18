@@ -3,12 +3,10 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField]
-    private SoundHolder _soundHolder = default;
-
     private static AudioSource _bgmSource = default;
     private static AudioSource _seSource = default;
 
+    private static SoundHolder _soundHolder = default;
     private static SoundManager _instance = default;
 
     public static SoundManager Instance
@@ -27,6 +25,8 @@ public class SoundManager : MonoBehaviour
                 var se = new GameObject("SE");
                 _seSource = se.AddComponent<AudioSource>();
                 se.transform.parent = sound.transform;
+
+                _soundHolder = Resources.Load<SoundHolder>("SoundHolder");
 
                 DontDestroyOnLoad(sound);
             }
@@ -49,4 +49,16 @@ public class SoundManager : MonoBehaviour
         _seSource.clip = _soundHolder.SeClips[(int)se];
         _seSource.Play();
     }
+
+    #region 以下各パラメーター設定用の関数
+    public void VolumeSettingBGM(float value)
+    {
+        _bgmSource.volume = value;
+    }
+
+    public void VolumeSettingSE(float value)
+    {
+        _seSource.volume = value;
+    }
+    #endregion
 }
