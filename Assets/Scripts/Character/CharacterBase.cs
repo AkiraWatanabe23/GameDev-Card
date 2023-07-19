@@ -9,10 +9,15 @@ public abstract class CharacterBase : MonoBehaviour
     private int _life = 0;
     [SerializeField]
     private List<CardData> _deck = default;
+    [SerializeField]
+    private List<CardData> _handingCards = default;
+
+    public List<CardData> Deck => _deck;
+    public List<CardData> HandingCards => _handingCards;
 
     private void Start()
     {
-        
+
     }
 
     private void Update()
