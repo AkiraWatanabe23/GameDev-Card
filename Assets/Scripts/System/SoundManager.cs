@@ -9,6 +9,9 @@ public class SoundManager : MonoBehaviour
     private static SoundHolder _soundHolder = default;
     private static SoundManager _instance = default;
 
+    private static float _bgmVolume = 1f;
+    private static float _seVolume = 1f;
+
     public static SoundManager Instance
     {
         get
@@ -28,16 +31,21 @@ public class SoundManager : MonoBehaviour
 
                 _soundHolder = Resources.Load<SoundHolder>("SoundHolder");
 
+                //音量設定
+                _bgmSource.volume = _bgmVolume;
+                _seSource.volume = _seVolume;
+
                 DontDestroyOnLoad(sound);
             }
             return _instance;
         }
     }
 
-    public void PlayBGM(BGM_TYPE bgm)
+    public void PlayBGM(BGM_TYPE bgm, bool isLoop)
     {
         _bgmSource.Stop();
 
+        _bgmSource.loop = isLoop;
         _bgmSource.clip = _soundHolder.BgmClips[(int)bgm];
         _bgmSource.Play();
     }
@@ -50,15 +58,17 @@ public class SoundManager : MonoBehaviour
         _seSource.Play();
     }
 
-    #region 以下各パラメーター設定用の関数
+    #region 以下Audio系パラメーター設定用の関数
     public void VolumeSettingBGM(float value)
     {
         _bgmSource.volume = value;
+        _bgmVolume = value;
     }
 
     public void VolumeSettingSE(float value)
     {
         _seSource.volume = value;
+        _seVolume = value;
     }
     #endregion
 }

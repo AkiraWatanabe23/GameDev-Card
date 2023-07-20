@@ -1,6 +1,6 @@
-using UnityEngine;
-using StateMachine;
 using Constants;
+using StateMachine;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {

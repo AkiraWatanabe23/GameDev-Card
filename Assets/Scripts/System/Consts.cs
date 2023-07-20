@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Constants
 {
@@ -28,12 +28,16 @@ namespace Constants
 
     public enum BGM_TYPE
     {
-
+        //ここに、各BGMのenumを列挙する
+        BGM_TITLE,
+        BGM_HOME,
+        BGM_INGAME,
+        BGM_RESULT,
     }
 
     public enum SE_TYPE
     {
-
+        //ここに、各SEのenumを列挙する
     }
 }
 
