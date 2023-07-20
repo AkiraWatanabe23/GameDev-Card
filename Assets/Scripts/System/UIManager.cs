@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -8,16 +9,13 @@ public class UIManager : MonoBehaviour
 
     private string _currentScene = default;
 
-    private void Start()
+    private void Awake()
     {
+        _currentScene = SceneManager.GetActiveScene().name;
+
         _bgmSlider.onValueChanged.AddListener(
             (value) => { SoundManager.Instance.VolumeSettingBGM(_bgmSlider.value); });
         _seSlider.onValueChanged.AddListener(
             (value) => { SoundManager.Instance.VolumeSettingSE(_seSlider.value); });
-    }
-
-    private void Update()
-    {
-
     }
 }

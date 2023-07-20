@@ -9,8 +9,8 @@ public class SoundHolder : MonoBehaviour
     [SerializeField]
     private SEController[] _seClips = default;
 
-    public BGMController[] BgmClips => _bgmClips;
-    public SEController[] SeClips => _seClips;
+    public BGMController[] BGMClips => _bgmClips;
+    public SEController[] SEClips => _seClips;
 
     [Serializable]
     public class BGMController

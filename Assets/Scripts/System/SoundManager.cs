@@ -12,6 +12,7 @@ public class SoundManager : MonoBehaviour
     private static float _bgmVolume = 1f;
     private static float _seVolume = 1f;
 
+    /// <summary> 現在再生しているSEの数 </summary>
     private int _sePlayingCount = 0;
 
     public static SoundManager Instance
@@ -47,7 +48,7 @@ public class SoundManager : MonoBehaviour
     {
         //配列から再生するBGMを検索
         var index = 0;
-        foreach (var clip in _soundHolder.BgmClips)
+        foreach (var clip in _soundHolder.BGMClips)
         {
             if (clip.BGMType == bgm) break;
 
@@ -57,7 +58,7 @@ public class SoundManager : MonoBehaviour
         _bgmSource.Stop();
 
         _bgmSource.loop = isLoop;
-        _bgmSource.clip = _soundHolder.BgmClips[index].BGMClip;
+        _bgmSource.clip = _soundHolder.BGMClips[index].BGMClip;
         _bgmSource.Play();
     }
 
@@ -66,19 +67,20 @@ public class SoundManager : MonoBehaviour
         if (_sePlayingCount >= Consts.SEPlayableLimit)
         {
             Debug.Log("SE同時再生数上限に達したので、リセットします");
+            //======ここ修正要るかも======//
             _seSource.Stop();
             _sePlayingCount = 0;
         }
 
         var index = 0;
-        foreach (var clip in _soundHolder.SeClips)
+        foreach (var clip in _soundHolder.SEClips)
         {
             if (clip.SEType == se) break;
 
             index++;
         }
 
-        _seSource.PlayOneShot(_soundHolder.SeClips[index].SEClip);
+        _seSource.PlayOneShot(_soundHolder.SEClips[index].SEClip);
         _sePlayingCount++;
     }
 
