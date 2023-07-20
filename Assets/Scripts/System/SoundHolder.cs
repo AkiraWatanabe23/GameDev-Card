@@ -1,12 +1,38 @@
+using Constants;
+using System;
 using UnityEngine;
 
 public class SoundHolder : MonoBehaviour
 {
     [SerializeField]
-    private AudioClip[] _bgmClips = default;
+    private BGMController[] _bgmClips = default;
     [SerializeField]
-    private AudioClip[] _seClips = default;
+    private SEController[] _seClips = default;
 
-    public AudioClip[] BgmClips => _bgmClips;
-    public AudioClip[] SeClips => _seClips;
+    public BGMController[] BgmClips => _bgmClips;
+    public SEController[] SeClips => _seClips;
+
+    [Serializable]
+    public class BGMController
+    {
+        [SerializeField]
+        private BGMType _bgmType = default;
+        [SerializeField]
+        private AudioClip _bgmClip = default;
+
+        public BGMType BGMType => _bgmType;
+        public AudioClip BGMClip => _bgmClip;
+    }
+
+    [Serializable]
+    public class SEController
+    {
+        [SerializeField]
+        private SEType _seType = default;
+        [SerializeField]
+        private AudioClip _seClip = default;
+
+        public SEType SEType => _seType;
+        public AudioClip SEClip => _seClip;
+    }
 }

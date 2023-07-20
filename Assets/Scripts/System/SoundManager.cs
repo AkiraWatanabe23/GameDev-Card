@@ -45,10 +45,19 @@ public class SoundManager : MonoBehaviour
 
     public void PlayBGM(BGMType bgm, bool isLoop)
     {
+        //配列から再生するBGMを検索
+        var index = 0;
+        foreach (var clip in _soundHolder.BgmClips)
+        {
+            if (clip.BGMType == bgm) break;
+
+            index++;
+        }
+
         _bgmSource.Stop();
 
         _bgmSource.loop = isLoop;
-        _bgmSource.clip = _soundHolder.BgmClips[(int)bgm];
+        _bgmSource.clip = _soundHolder.BgmClips[index].BGMClip;
         _bgmSource.Play();
     }
 
@@ -56,12 +65,21 @@ public class SoundManager : MonoBehaviour
     {
         if (_sePlayingCount >= Consts.SEPlayableLimit)
         {
-
+            Debug.Log("SE同時再生数上限に達したので、リセットします");
+            _seSource.Stop();
+            _sePlayingCount = 0;
         }
 
-        _seSource.Stop();
+        var index = 0;
+        foreach (var clip in _soundHolder.SeClips)
+        {
+            if (clip.SEType == se) break;
 
-        _seSource.PlayOneShot(_soundHolder.SeClips[(int)se]);
+            index++;
+        }
+
+        _seSource.PlayOneShot(_soundHolder.SeClips[index].SEClip);
+        _sePlayingCount++;
     }
 
     #region 以下Audio系パラメーター設定用の関数

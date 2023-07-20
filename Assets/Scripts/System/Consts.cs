@@ -30,7 +30,7 @@ namespace Constants
 
     public enum BGMType
     {
-        //ここに、各BGMのenumを列挙する
+        None,
         TitleBGM,
         HomeBGM,
         InGameBGM,
@@ -39,7 +39,7 @@ namespace Constants
 
     public enum SEType
     {
-        //ここに、各SEのenumを列挙する
+        None,
     }
 }
 
