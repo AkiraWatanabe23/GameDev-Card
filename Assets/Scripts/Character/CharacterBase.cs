@@ -15,16 +15,6 @@ public abstract class CharacterBase : MonoBehaviour
     public List<CardData> Deck => _deck;
     public List<CardData> HandingCards => _handingCards;
 
-    private void Start()
-    {
-
-    }
-
-    private void Update()
-    {
-
-    }
-
     #region Playerの行動一覧
     public abstract void CardDraw();
     #endregion
