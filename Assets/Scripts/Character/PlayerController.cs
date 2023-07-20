@@ -2,6 +2,13 @@
 
 public class PlayerController : CharacterBase
 {
+    private DataHolder _dataHolder = new();
+
+    private void Start()
+    {
+        _dataHolder.SetPlayer(this);
+    }
+
     public override void CardDraw()
     {
         if (Deck.Count == 0) return;
