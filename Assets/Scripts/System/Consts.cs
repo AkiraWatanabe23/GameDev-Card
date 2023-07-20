@@ -4,38 +4,40 @@ namespace Constants
 {
     public class Consts
     {
+        public const int SEPlayableLimit = 5;
+
         public static readonly Dictionary<SceneNames, string> Scenes = new()
         {
-            [SceneNames.TITLE_SCENE] = "Title",
-            [SceneNames.INGAME_SCENE] = "InGame",
-            [SceneNames.RESULT_SCENE] = "Result",
+            [SceneNames.TitleScene] = "Title",
+            [SceneNames.InGameScene] = "InGame",
+            [SceneNames.ResultScene] = "Result",
         };
     }
 
     public enum SceneNames
     {
-        TITLE_SCENE,
-        INGAME_SCENE,
-        RESULT_SCENE,
+        TitleScene,
+        InGameScene,
+        ResultScene,
     }
 
     public enum Turn
     {
-        NONE,
-        PLAYER,
-        OPPONENT,
+        None,
+        Player,
+        Opponent,
     }
 
-    public enum BGM_TYPE
+    public enum BGMType
     {
         //ここに、各BGMのenumを列挙する
-        BGM_TITLE,
-        BGM_HOME,
-        BGM_INGAME,
-        BGM_RESULT,
+        TitleBGM,
+        HomeBGM,
+        InGameBGM,
+        ResultBGM,
     }
 
-    public enum SE_TYPE
+    public enum SEType
     {
         //ここに、各SEのenumを列挙する
     }

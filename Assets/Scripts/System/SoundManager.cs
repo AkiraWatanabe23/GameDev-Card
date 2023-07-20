@@ -12,6 +12,8 @@ public class SoundManager : MonoBehaviour
     private static float _bgmVolume = 1f;
     private static float _seVolume = 1f;
 
+    private int _sePlayingCount = 0;
+
     public static SoundManager Instance
     {
         get
@@ -41,7 +43,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlayBGM(BGM_TYPE bgm, bool isLoop)
+    public void PlayBGM(BGMType bgm, bool isLoop)
     {
         _bgmSource.Stop();
 
@@ -50,12 +52,16 @@ public class SoundManager : MonoBehaviour
         _bgmSource.Play();
     }
 
-    public void PlaySE(SE_TYPE se)
+    public void PlaySE(SEType se)
     {
+        if (_sePlayingCount >= Consts.SEPlayableLimit)
+        {
+
+        }
+
         _seSource.Stop();
 
-        _seSource.clip = _soundHolder.SeClips[(int)se];
-        _seSource.Play();
+        _seSource.PlayOneShot(_soundHolder.SeClips[(int)se]);
     }
 
     #region 以下Audio系パラメーター設定用の関数

@@ -12,7 +12,7 @@ public class EndPhase : IState
     public void OnUpdate(StateMachineRoot owner)
     {
         GameManager.Instance.ChangeTurn(
-            GameManager.Instance.CurrentTurn != Turn.PLAYER ? Turn.PLAYER : Turn.OPPONENT);
+            GameManager.Instance.CurrentTurn != Turn.Player ? Turn.Player : Turn.Opponent);
 
         owner.ChangeState(States.PHASE_START);
     }
