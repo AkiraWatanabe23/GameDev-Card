@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
 
         if (_currentScene == Consts.Scenes[SceneNames.TitleScene])
         {
-            _sceneUI = Resources.Load<TitleUI>("TitleUI");
+            _sceneUI = FindObjectOfType<TitleUI>();
         }
         else if (_currentScene == Consts.Scenes[SceneNames.HomeScene])
         {

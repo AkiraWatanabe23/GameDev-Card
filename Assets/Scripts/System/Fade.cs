@@ -12,8 +12,8 @@ public class Fade : MonoBehaviour
     [SerializeField]
     private float _fadeTime = 1f;
 
-    private Action[] _onCompleteFadeIn = default;
-    private Action[] _onCompleteFadeOut = default;
+    private Action[] _onCompleteFadeIn = new Action[0];
+    private Action[] _onCompleteFadeOut = new Action[0];
 
     public static Fade Instance { get; private set; }
 
@@ -65,7 +65,7 @@ public class Fade : MonoBehaviour
         }
 
         _fadePanel.gameObject.SetActive(false);
-        foreach (var action  in _onCompleteFadeIn)
+        foreach (var action in _onCompleteFadeIn)
         {
             action?.Invoke();
         }
@@ -97,12 +97,12 @@ public class Fade : MonoBehaviour
     }
 
     #region フェード実行後に実行する関数を登録
-    public void RegisterFadeInEvent(Action[] actions)
+    public void RegisterFadeInEvent(Action[] actions = null)
     {
         _onCompleteFadeIn = actions;
     }
 
-    public void RegisterFadeOutEvent(Action[] actions)
+    public void RegisterFadeOutEvent(Action[] actions = null)
     {
         _onCompleteFadeOut = actions;
     }

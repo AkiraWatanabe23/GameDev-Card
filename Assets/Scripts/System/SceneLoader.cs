@@ -1,13 +1,10 @@
 ﻿using Constants;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
+public class SceneLoader
 {
-    [SerializeField] private SceneNames _scene = default;
-
-    public void LoadToScene()
+    public static void LoadToScene(SceneNames scene)
     {
-        SceneManager.LoadScene(Consts.Scenes[_scene]);
+        SceneManager.LoadScene(Consts.Scenes[scene]);
     }
 }
