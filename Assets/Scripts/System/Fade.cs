@@ -96,15 +96,15 @@ public class Fade : MonoBehaviour
         }
     }
 
-    #region フェード実行後に実行する関数を登録
+    /// <summary> フェードイン実行後の処理を登録する </summary>
     public void RegisterFadeInEvent(Action[] actions = null)
     {
         _onCompleteFadeIn = actions;
     }
 
+    /// <summary> フェードアウト実行後の処理を登録する </summary>
     public void RegisterFadeOutEvent(Action[] actions = null)
     {
         _onCompleteFadeOut = actions;
     }
-    #endregion
 }

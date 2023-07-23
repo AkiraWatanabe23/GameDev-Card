@@ -38,8 +38,10 @@ public class UIManager : MonoBehaviour
     [System.Serializable]
     public class OptionUI : ISceneUI
     {
-        [SerializeField] private Slider _bgmSlider = default;
-        [SerializeField] private Slider _seSlider = default;
+        [SerializeField]
+        private Slider _bgmSlider = default;
+        [SerializeField]
+        private Slider _seSlider = default;
 
         public void Init()
         {
