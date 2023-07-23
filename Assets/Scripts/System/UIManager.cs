@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
         if (_currentScene == Consts.Scenes[SceneNames.TitleScene])
         {
             _sceneUI = FindObjectOfType<TitleUI>();
+            SoundManager.Instance.PlayBGM(BGMType.TitleBGM, true);
         }
         else if (_currentScene == Consts.Scenes[SceneNames.HomeScene])
         {

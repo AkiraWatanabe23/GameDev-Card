@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(SoundManager.Instance == null);
         _stateMachineRoot.Init();
     }
 
