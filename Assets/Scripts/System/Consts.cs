@@ -9,6 +9,7 @@ namespace Constants
         public static readonly Dictionary<SceneNames, string> Scenes = new()
         {
             [SceneNames.TitleScene] = "Title",
+            [SceneNames.HomeScene] = "Home",
             [SceneNames.InGameScene] = "InGame",
             [SceneNames.ResultScene] = "Result",
         };
@@ -17,6 +18,7 @@ namespace Constants
     public enum SceneNames
     {
         TitleScene,
+        HomeScene,
         InGameScene,
         ResultScene,
     }
