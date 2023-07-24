@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private StateMachineRoot _stateMachineRoot = new();
 
+    [Header("Debug")]
+    [SerializeField]
+    private bool _isDebugMode = false;
+
     public Turn CurrentTurn { get; private set; }
     public static GameManager Instance { get; private set; }
 
@@ -25,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _stateMachineRoot.Init();
+        if(!_isDebugMode) _stateMachineRoot.Init();
     }
 
     public void ChangeTurn(Turn nextTurn)

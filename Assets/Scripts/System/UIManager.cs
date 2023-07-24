@@ -1,12 +1,11 @@
 using Constants;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
-    private OptionUI _option = default;
+    private OptionUI _optionUI = default;
 
     private string _currentScene = default;
     private ISceneUI _sceneUI = default;
@@ -22,33 +21,16 @@ public class UIManager : MonoBehaviour
         }
         else if (_currentScene == Consts.Scenes[SceneNames.HomeScene])
         {
-
+            SoundManager.Instance.PlayBGM(BGMType.HomeBGM, true);
         }
         else if (_currentScene == Consts.Scenes[SceneNames.InGameScene])
         {
-
+            SoundManager.Instance.PlayBGM(BGMType.InGameBGM, true);
         }
         else if (_currentScene == Consts.Scenes[SceneNames.ResultScene])
         {
-
+            SoundManager.Instance.PlayBGM(BGMType.ResultBGM, true);
         }
         _sceneUI.Init();
-    }
-
-    [System.Serializable]
-    public class OptionUI : ISceneUI
-    {
-        [SerializeField]
-        private Slider _bgmSlider = default;
-        [SerializeField]
-        private Slider _seSlider = default;
-
-        public void Init()
-        {
-            _bgmSlider.onValueChanged.AddListener(
-                (value) => { SoundManager.Instance.VolumeSettingBGM(_bgmSlider.value); });
-            _seSlider.onValueChanged.AddListener(
-                (value) => { SoundManager.Instance.VolumeSettingSE(_seSlider.value); });
-        }
     }
 }
