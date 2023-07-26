@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
     private OptionUI _optionUI = default;
 
     private string _currentScene = default;
-    private ISceneUI _sceneUI = default;
+    private SceneUIBase _sceneUI = default;
 
     public static UIManager Instance { get; private set; }
 

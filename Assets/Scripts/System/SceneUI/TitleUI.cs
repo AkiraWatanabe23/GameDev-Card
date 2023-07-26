@@ -3,12 +3,12 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TitleUI : MonoBehaviour, ISceneUI
+public class TitleUI : SceneUIBase
 {
     [SerializeField]
     private Button _startButton = default;
 
-    public void Init()
+    public override void Init()
     {
         Fade.Instance.RegisterFadeOutEvent(
             new Action[] { () => SceneLoader.LoadToScene(SceneNames.HomeScene) });
