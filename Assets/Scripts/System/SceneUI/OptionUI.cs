@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class OptionUI : MonoBehaviour, ISceneUI
+public class OptionUI : SceneUIBase
 {
     [SerializeField]
     private Slider _bgmSlider = default;
@@ -13,7 +13,7 @@ public class OptionUI : MonoBehaviour, ISceneUI
         Init();
     }
 
-    public void Init()
+    public override void Init()
     {
         _bgmSlider.value = 1;
         _seSlider.value = 1;

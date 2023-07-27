@@ -6,9 +6,6 @@ namespace StateMachine
     [Serializable]
     public class StateMachineRoot
     {
-        [SerializeField]
-        [SerializeReference]
-        [SubclassSelector]
         private IState _currentState = default;
 
         #region 各ステート
@@ -37,12 +34,12 @@ namespace StateMachine
         {
             switch (state)
             {
-                case States.PHASE_START:    return _startPhase;
-                case States.PHASE_DRAW:     return _drawPhase;
-                case States.PHASE_MAIN_ONE: return _mainOnePhase;
-                case States.PHASE_BATTLE:   return _battlePhase;
-                case States.PHASE_MAIN_TWO: return _mainTwoPhase;
-                case States.PHASE_END:      return _endPhase;
+                case States.PhaseStart:    return _startPhase;
+                case States.PhaseDraw:     return _drawPhase;
+                case States.PhaseMainOne:  return _mainOnePhase;
+                case States.PhaseBattle:   return _battlePhase;
+                case States.PhasseMainTwo: return _mainTwoPhase;
+                case States.PhaseEnd:      return _endPhase;
             }
             Debug.LogError("No State");
             return null;
@@ -58,12 +55,12 @@ namespace StateMachine
 
     public enum States
     {
-        NONE,
-        PHASE_START,
-        PHASE_DRAW,
-        PHASE_MAIN_ONE,
-        PHASE_BATTLE,
-        PHASE_MAIN_TWO,
-        PHASE_END,
+        None,
+        PhaseStart,
+        PhaseDraw,
+        PhaseMainOne,
+        PhaseBattle,
+        PhasseMainTwo,
+        PhaseEnd,
     }
 }

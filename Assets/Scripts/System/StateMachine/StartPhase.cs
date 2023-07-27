@@ -10,7 +10,7 @@ public class StartPhase : IState
 
     public void OnUpdate(StateMachineRoot owner)
     {
-        owner.ChangeState(States.PHASE_DRAW);
+        owner.ChangeState(States.PhaseDraw);
     }
 
     public void OnExit(StateMachineRoot owner)

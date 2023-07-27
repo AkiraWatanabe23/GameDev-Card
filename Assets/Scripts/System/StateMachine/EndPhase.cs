@@ -14,7 +14,7 @@ public class EndPhase : IState
         GameManager.Instance.ChangeTurn(
             GameManager.Instance.CurrentTurn != Turn.Player ? Turn.Player : Turn.Opponent);
 
-        owner.ChangeState(States.PHASE_START);
+        owner.ChangeState(States.PhaseStart);
     }
 
     public void OnExit(StateMachineRoot owner)
