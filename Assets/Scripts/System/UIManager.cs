@@ -2,53 +2,44 @@ using Constants;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIManager : MonoBehaviour
+public class UIManager
 {
-    [SerializeField]
-    private OptionUI _optionUI = default;
-
     private string _currentScene = default;
     private SceneUIBase _sceneUI = default;
 
-    public static UIManager Instance { get; private set; }
+    private static UIManager _instance = default;
 
-    private void Awake()
+    public static UIManager Instance
     {
-        if (Instance == null)
+        get
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            _instance ??= new();
+            return _instance;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-        SceneUISetting();
     }
 
-    private void SceneUISetting()
+    public void Init()
     {
         _currentScene = SceneManager.GetActiveScene().name;
 
         if (_currentScene == Consts.Scenes[SceneNames.TitleScene])
         {
-            _sceneUI = FindObjectOfType<TitleUI>();
+            _sceneUI = Object.FindObjectOfType<TitleUI>();
             SoundManager.Instance.PlayBGM(BGMType.TitleBGM, true);
         }
         else if (_currentScene == Consts.Scenes[SceneNames.HomeScene])
         {
-            _sceneUI = FindObjectOfType<HomeUI>();
+            _sceneUI = Object.FindObjectOfType<HomeUI>();
             SoundManager.Instance.PlayBGM(BGMType.HomeBGM, true);
         }
         else if (_currentScene == Consts.Scenes[SceneNames.InGameScene])
         {
-            _sceneUI = FindObjectOfType<InGameUI>();
+            _sceneUI = Object.FindObjectOfType<InGameUI>();
             SoundManager.Instance.PlayBGM(BGMType.InGameBGM, true);
         }
         else if (_currentScene == Consts.Scenes[SceneNames.ResultScene])
         {
-            _sceneUI = FindObjectOfType<ResultUI>();
+            _sceneUI = Object.FindObjectOfType<ResultUI>();
             SoundManager.Instance.PlayBGM(BGMType.ResultBGM, true);
         }
         _sceneUI.Init();

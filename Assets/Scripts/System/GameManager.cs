@@ -29,7 +29,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if(!_isDebugMode) _stateMachineRoot.Init();
+        if (!_isDebugMode) _stateMachineRoot.Init();
+        else
+        {
+            Debug.Log(UIManager.Instance == null);
+            Debug.Log(SoundManager.Instance == null);
+        }
     }
 
     public void ChangeTurn(Turn nextTurn)

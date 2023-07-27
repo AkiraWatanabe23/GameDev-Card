@@ -1,7 +1,7 @@
 using Constants;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager
 {
     private static AudioSource _bgmSource = default;
     private static AudioSource _seSource = default;
@@ -19,28 +19,33 @@ public class SoundManager : MonoBehaviour
     {
         get
         {
-            if (_instance == null)
-            {
-                var sound = new GameObject("SoundManager");
-                _instance = sound.AddComponent<SoundManager>();
-
-                var bgm = new GameObject("BGM");
-                _bgmSource = bgm.AddComponent<AudioSource>();
-                bgm.transform.parent = sound.transform;
-
-                var se = new GameObject("SE");
-                _seSource = se.AddComponent<AudioSource>();
-                se.transform.parent = sound.transform;
-
-                _soundHolder = Resources.Load<SoundHolder>("SoundHolder");
-
-                //音量設定
-                _bgmSource.volume = _bgmVolume;
-                _seSource.volume = _seVolume;
-
-                DontDestroyOnLoad(sound);
-            }
+            Init();
             return _instance;
+        }
+    }
+
+    private static void Init()
+    {
+        if (_instance == null)
+        {
+            var sound = new GameObject("SoundManager");
+            _instance = new();
+
+            var bgm = new GameObject("BGM");
+            _bgmSource = bgm.AddComponent<AudioSource>();
+            bgm.transform.parent = sound.transform;
+
+            var se = new GameObject("SE");
+            _seSource = se.AddComponent<AudioSource>();
+            se.transform.parent = sound.transform;
+
+            _soundHolder = Resources.Load<SoundHolder>("SoundHolder");
+
+            //音量設定
+            _bgmSource.volume = _bgmVolume;
+            _seSource.volume = _seVolume;
+
+            Object.DontDestroyOnLoad(sound);
         }
     }
 
