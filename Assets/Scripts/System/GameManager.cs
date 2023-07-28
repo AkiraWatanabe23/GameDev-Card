@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
+    private DataLoader _dataLoader = new();
+    [SerializeField]
     private StateMachineRoot _stateMachineRoot = new();
 
     [Header("Debug")]
@@ -32,8 +34,8 @@ public class GameManager : MonoBehaviour
         if (!_isDebugMode) _stateMachineRoot.Init();
         else
         {
-            Debug.Log(UIManager.Instance == null);
-            Debug.Log(SoundManager.Instance == null);
+            UIManager.Instance.Init();
+            _dataLoader.Init();
         }
     }
 

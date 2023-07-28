@@ -72,7 +72,7 @@ public class SoundManager
         if (_sePlayingCount >= Consts.SEPlayableLimit)
         {
             Debug.Log("SE同時再生数上限に達したので、リセットします");
-            //======ここ修正要るかも======//
+            //======ここ修正要るかも（このままだとSE全部止まる）======//
             _seSource.Stop();
             _sePlayingCount = 0;
         }

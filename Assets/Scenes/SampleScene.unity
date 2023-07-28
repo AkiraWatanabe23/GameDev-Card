@@ -565,4 +565,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a0e91d346dc0247a31dbb8f885fde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dataLoader:
+    _sheetURL: https://docs.google.com/spreadsheets/d/1PUSyLrukReHv7hjlRs4nrmvax9hpraSwDqG-foDTTA0/edit?usp=sharing
   _isDebugMode: 1

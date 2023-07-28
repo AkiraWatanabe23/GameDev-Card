@@ -1,4 +1,4 @@
-using Constants;
+﻿using Constants;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -41,6 +41,12 @@ public class UIManager
         {
             _sceneUI = Object.FindObjectOfType<ResultUI>();
             SoundManager.Instance.PlayBGM(BGMType.ResultBGM, true);
+        }
+        else
+        {
+            //Debug用
+            Debug.Log("MasterSceneではないため、UIの初期化を実行しません");
+            return;
         }
         _sceneUI.Init();
     }
