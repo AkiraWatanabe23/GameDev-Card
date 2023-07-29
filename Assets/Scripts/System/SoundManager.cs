@@ -1,4 +1,5 @@
 using Constants;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager
@@ -12,8 +13,7 @@ public class SoundManager
     private static float _bgmVolume = 1f;
     private static float _seVolume = 1f;
 
-    /// <summary> 現在再生しているSEの数 </summary>
-    private int _sePlayingCount = 0;
+    private Queue<AudioClip> _seQueue = new();
 
     public static SoundManager Instance
     {
@@ -51,7 +51,6 @@ public class SoundManager
 
     public void PlayBGM(BGMType bgm, bool isLoop)
     {
-        //配列から再生するBGMを検索
         var index = 0;
         foreach (var clip in _soundHolder.BGMClips)
         {
@@ -69,12 +68,11 @@ public class SoundManager
 
     public void PlaySE(SEType se)
     {
-        if (_sePlayingCount >= Consts.SEPlayableLimit)
+        if (_seQueue.Count >= Consts.SEPlayableLimit)
         {
-            Debug.Log("SE同時再生数上限に達したので、リセットします");
-            //======ここ修正要るかも（このままだとSE全部止まる）======//
-            _seSource.Stop();
-            _sePlayingCount = 0;
+            Debug.Log("SE同時再生数上限に達しました");
+            //最初に登録したSEを削除
+            _seQueue.Dequeue();
         }
 
         var index = 0;
@@ -84,9 +82,14 @@ public class SoundManager
 
             index++;
         }
+        _seQueue.Enqueue(_soundHolder.SEClips[index].SEClip);
 
-        _seSource.PlayOneShot(_soundHolder.SEClips[index].SEClip);
-        _sePlayingCount++;
+        //再生するSEがあれば、最後に登録したSEを再生
+        if (_seQueue.Count > 0 && !_seSource.isPlaying)
+        {
+            var next = _seQueue.Peek();
+            _seSource.PlayOneShot(next);
+        }
     }
 
     #region 以下Audio系パラメーター設定用の関数

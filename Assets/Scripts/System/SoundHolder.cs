@@ -1,5 +1,4 @@
 using Constants;
-using System;
 using UnityEngine;
 
 public class SoundHolder : MonoBehaviour
@@ -12,7 +11,7 @@ public class SoundHolder : MonoBehaviour
     public BGMController[] BGMClips => _bgmClips;
     public SEController[] SEClips => _seClips;
 
-    [Serializable]
+    [System.Serializable]
     public class BGMController
     {
         [SerializeField]
@@ -24,7 +23,7 @@ public class SoundHolder : MonoBehaviour
         public AudioClip BGMClip => _bgmClip;
     }
 
-    [Serializable]
+    [System.Serializable]
     public class SEController
     {
         [SerializeField]
