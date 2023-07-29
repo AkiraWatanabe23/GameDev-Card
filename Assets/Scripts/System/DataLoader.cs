@@ -48,4 +48,9 @@ public class DataLoader
 
         await tcs.Task;
     }
+
+    private void LoadDataConverter()
+    {
+        //読み込んだデータを扱いやすい形式に変換する
+    }
 }

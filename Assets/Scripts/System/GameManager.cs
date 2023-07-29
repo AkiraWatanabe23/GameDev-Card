@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private DataLoader _dataLoader = new();
     [SerializeField]
-    private StateMachineRoot _stateMachineRoot = new();
+    private StateMachineRoot _stateMachineRoot = default;
 
     [Header("Debug")]
     [SerializeField]
@@ -31,8 +31,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if (!_isDebugMode) _stateMachineRoot.Init();
-        else
+        if (UIManager.Instance.CurrentScene == Consts.Scenes[SceneNames.InGameScene])
+        {
+            _stateMachineRoot = new();
+            _stateMachineRoot.Init();
+        }
+
+        if (_isDebugMode)
         {
             UIManager.Instance.Init();
             _dataLoader.Init();

@@ -9,6 +9,7 @@ public class UIManager
 
     private static UIManager _instance = default;
 
+    public string CurrentScene => _currentScene;
     public static UIManager Instance
     {
         get
